@@ -1,0 +1,42 @@
+// This block of checks wethere a number can be express as sum of two prime numbers.
+#include <iostream>
+using namespace std;
+
+ // Function to check prime number
+int func(int a) 
+{
+   int i;
+   int flag = 1;
+   
+   for(i = 2; i <= a/2; ++i) 
+   {
+      if(a % i == 0) 
+	  {
+         flag = 0;
+         break;
+      }
+   }
+   return flag;
+}
+
+int main() 
+{
+   int a , i;
+   cout << "Enter a number : \n";
+   cin >> a;
+   
+   // condition for i to be a prime number
+
+   for(i = 2; i <= a/2; ++i) 
+   {
+      if (func(i)) 
+	  { 
+	    // condition for n-i to be a prime number
+         if (func(a - i)) 
+         {
+            cout << a << " = " << i << " + " << a-i << "\n";
+         }
+     }
+   }
+   return 0;
+}
